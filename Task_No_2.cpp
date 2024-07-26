@@ -1,36 +1,46 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Person
 {
     string name, address;
 public:
-    Person(string n, string a)
+    Person(string n , string a)
     {
         name = n;
         address = a;
     }
 
+    void setName(string name)
+    {
+        this->name = name;
+    }
     string getName()
     {
         return name;
+    }
+    void setAddress(string address)
+    {
+        this->address = address;
     }
     string getAddress()
     {
         return address;
     }
-    void setAddress(string& new_address)
+    void toString(Person)
     {
-        address = new_address;
+        Person::name = name;
+        Person::address = address;
     }
     string toString()
     {
-        Person::getName();
-        Person::getAddress();
-        Person& setAddress();
+        return "Name " + name + "\nAddress " +address;
     }
 };
-class Student : public Person
+
+
+class Student : public Person  //Student class derived from Person class
 {
     string program;
     int year;
@@ -43,40 +53,38 @@ public:
         year = y;
         fee = f;
     }
+    
+    void setProgram(string program)
+    {
+        this->program = program;
+    }
     string getProgram()
     {
         return program;
     }
-    void setProgram(string & new_program)
+    void setYear(int year)
     {
-        program = new_program;
+        this->year = year;
     }
     int getYear()
     {
         return year;
     }
-    void setYear(int& new_year)
+    void setFee(double fee)
     {
-        year = new_year;
+        this->fee = fee;
     }
     double getFee()
     {
         return fee;
     }
-    void setFee(double& new_fee)
+   
+    string toString() //overriding
     {
-        fee = new_fee;
-    }
-    string toString()
-    {
-        Student::getName();
-        Student::getAddress();
-        Student::getProgram();
-        Student::getYear();
-        Student::getFee();
+        return Person::toString()+ "\nProgram " + program + "\nYear "+ to_string(year) + "\nFee " + to_string(fee);
     }
 };
-class Staff : public Person
+class Staff : public Person         //Staff class derived from Person class
 {
     string school;
     double pay;
@@ -86,34 +94,38 @@ public:
         school = s;
         pay = p;
     }
+    void setSchool(string school)
+    {
+        this->school = school;
+    }
     string getSchool()
     {
         return school;
     }
-    void setSchool(string& new_school)
+    void setPay(double pay)
     {
-        school = new_school;
+        this->pay = pay;
     }
     double getPay()
     {
         return pay;
     }
-    void setPay(double& new_pay)
+    
+    string toString() //overriding
     {
-        pay = new_pay;
-    }
-    string toString()
-    {
-        Staff::getName();
-        Staff::getAddress();
-        Staff::getSchool();
-        Staff::getPay();
+        return Person::toString()+ "\nSchool " + school + "\nPay " + to_string(pay);
     }
 };
 
 int main()
 {
-
+    Person person = Person("Abdur Rehman", "Bagh");
+    cout << person.toString()<<endl;
+    Student student = Student("Abdur Rehman", "Bagh", "SE", 1, 50000);
+    cout << "\n"+ student.toString() << endl;
+    Staff staff = Staff("Abdur Rehman","Bagh","READ",40000);
+    cout<< "\n" + staff.toString()<<endl;
+   
     return 0;
 }
  
