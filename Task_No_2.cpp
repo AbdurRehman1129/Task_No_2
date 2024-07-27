@@ -35,7 +35,7 @@ public:
     }
     string toString()
     {
-        return "Name " + name + "\nAddress " +address;
+        return "Name : " + name + "\nAddress : " +address;
     }
 };
 
@@ -81,7 +81,7 @@ public:
    
     string toString() //overriding
     {
-        return Person::toString()+ "\nProgram " + program + "\nYear "+ to_string(year) + "\nFee " + to_string(fee);
+        return Person::toString()+ "\nProgram : " + program + "\nYear : "+ to_string(year) + "\nFee : " + to_string(fee);
     }
 };
 class Staff : public Person         //Staff class derived from Person class
@@ -113,7 +113,7 @@ public:
     
     string toString() //overriding
     {
-        return Person::toString()+ "\nSchool " + school + "\nPay " + to_string(pay);
+        return Person::toString()+ "\nSchool : " + school + "\nPay : " + to_string(pay);
     }
 };
 
@@ -121,9 +121,9 @@ int main()
 {
     Person person = Person("Abdur Rehman", "Bagh");
     cout << person.toString()<<endl;
-    Student student = Student("Abdur Rehman", "Bagh", "SE", 1, 50000);
+    Student student = Student("Amir", "RWP", "SE", 1, 50000);
     cout << "\n"+ student.toString() << endl;
-    Staff staff = Staff("Abdur Rehman","Bagh","READ",40000);
+    Staff staff = Staff("Abid","MZD","READ",40000);
     cout<< "\n" + staff.toString()<<endl;
    
     return 0;
